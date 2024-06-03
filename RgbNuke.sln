@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwoodTemplate", "NorthwoodTemplate\NorthwoodTemplate.csproj", "{48651FCC-48CF-4E14-8543-57551A004FA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RgbNuke", "RgbNuke\RgbNuke.csproj", "{48651FCC-48CF-4E14-8543-57551A004FA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
