@@ -38,6 +38,5 @@
         <Reference Include="Pooling" HintPath="$(SLExec)\SCPSL_Data\Managed\Pooling.dll"/>
         <Reference Include="CedModV3" HintPath="..\external_dlls\CedModV3.dll"/>
         <Reference Include="SCPSLAudioApi" HintPath="..\external_dlls\SCPSLAudioApi.dll"/>
-        <Reference Include="AutoEvent-NWApi" HintPath="..\external_dlls\AutoEvent-NWApi.dll"/>
     </ItemGroup>
 </Project>
