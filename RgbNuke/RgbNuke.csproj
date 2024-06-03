@@ -12,11 +12,14 @@
         <Platforms>AnyCPU</Platforms>
         <IsPackable>false</IsPackable>
         <LangVersion>latest</LangVersion>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Northwood.PluginAPI" Version="13.1.2" />
-        <PackageReference Include="YamlDotNet" Version="11.0.1" />
+        <PackageReference Include="EXILED" Version="8.7.0"/>
+        <PackageReference Include="Northwood.PluginAPI" Version="13.1.2"/>
+        <PackageReference Include="YamlDotNet" Version="11.0.1"/>
         <PackageReference Include="UnityEngine.Modules" Version="2020.3.33" IncludeAssets="compile"/>
     </ItemGroup>
 
@@ -28,10 +31,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Reference Include="Assembly-CSharp" HintPath="$(SLExec)\SCPSL_Data\Managed\Assembly-CSharp.dll" />
-        <Reference Include="Assembly-CSharp-firstpass" HintPath="$(SLExec)\SCPSL_Data\Managed\Assembly-CSharp-firstpass.dll" />
-        <Reference Include="CommandSystem.Core" HintPath="$(SLExec)\SCPSL_Data\Managed\CommandSystem.Core.dll" />
-        <Reference Include="Mirror" HintPath="$(SLExec)\SCPSL_Data\Managed\Mirror.dll" />
-        <Reference Include="Pooling" HintPath="$(SLExec)\SCPSL_Data\Managed\Pooling.dll" />
+        <Reference Include="Assembly-CSharp" HintPath="$(SLExec)\SCPSL_Data\Managed\Assembly-CSharp.dll"/>
+        <Reference Include="Assembly-CSharp-firstpass" HintPath="$(SLExec)\SCPSL_Data\Managed\Assembly-CSharp-firstpass.dll"/>
+        <Reference Include="CommandSystem.Core" HintPath="$(SLExec)\SCPSL_Data\Managed\CommandSystem.Core.dll"/>
+        <Reference Include="Mirror" HintPath="$(SLExec)\SCPSL_Data\Managed\Mirror.dll"/>
+        <Reference Include="Pooling" HintPath="$(SLExec)\SCPSL_Data\Managed\Pooling.dll"/>
+        <Reference Include="CedModV3" HintPath="..\external_dlls\CedModV3.dll"/>
+        <Reference Include="SCPSLAudioApi" HintPath="..\external_dlls\SCPSLAudioApi.dll"/>
+        <Reference Include="AutoEvent-NWApi" HintPath="..\external_dlls\AutoEvent-NWApi.dll"/>
     </ItemGroup>
 </Project>
