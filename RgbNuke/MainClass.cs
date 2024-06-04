@@ -2,6 +2,7 @@ using PluginAPI.Core;
 using PluginAPI.Core.Attributes;
 using PluginAPI.Events;
 using RgbNuke.Configs;
+using SCPSLAudioApi;
 
 namespace RgbNuke;
 
@@ -27,6 +28,8 @@ public class MainClass
         Singleton = this;
         Log.Info("Loading RGB Nuke");
         EventManager.RegisterEvents(_handler);
+        
+        Startup.SetupDependencies();
     }
 
     [PluginUnload]
