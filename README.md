@@ -16,3 +16,8 @@ You can change the directory to look for the "warhead.ogg" file in the config. H
 round. 0 means never and 100 means always.
 
 <code>Volume</code> - The volume at which the music will be played (as an integer).
+
+## Example video
+
+https://github.com/gamendegamer321/RgbNuke/assets/74590966/1549019a-c9cd-477e-b428-c1ec82acff96
+
