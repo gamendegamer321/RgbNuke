@@ -5,6 +5,12 @@ Will turn all facility lights into a rainbow when the alpha warhead is activated
 By default, we expect the song to be a file named "warhead.ogg" located in the <code>SCP Secret
 Laboratory/PluginAPI/Plugins/Global/Rainbow Nuke/Audio</code> directory, the Audio directory is next to the config file.
 
+## Requirements
+
+This plugin requires the following plugins to be installed on the server:
+ - [Cedmod](https://cedmod.nl/)
+ - [SCPSLAudioApi](https://github.com/CedModV2/SCPSLAudioApi)
+
 ## Config
 
 You can change the directory to look for the "warhead.ogg" file in the config. Here <code>{global}</code> points to the
@@ -16,3 +22,8 @@ You can change the directory to look for the "warhead.ogg" file in the config. H
 round. 0 means never and 100 means always.
 
 <code>Volume</code> - The volume at which the music will be played (as an integer).
+
+## Example video
+
+https://github.com/gamendegamer321/RgbNuke/assets/74590966/1549019a-c9cd-477e-b428-c1ec82acff96
+
