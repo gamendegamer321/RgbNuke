@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
-using CedMod.Addons.Audio;
 using Mirror;
-using PluginAPI.Core;
 using PluginAPI.Helpers;
 using SCPSLAudioApi.AudioCore;
 using VoiceChat;
@@ -22,9 +20,9 @@ public static class AudioPlayer
     public static void PlayAudio()
     {
         if (_audioBot == null) AddDummy();
-        
+
         StopAudio();
-        
+
         var path = Path.Combine(AudioPath, "warhead.ogg");
         var audioPlayer = AudioPlayerBase.Get(_audioBot);
         audioPlayer.Enqueue(path, -1);
@@ -38,7 +36,7 @@ public static class AudioPlayer
     public static void StopAudio()
     {
         if (_audioBot == null) return;
-        
+
         var audioPlayer = AudioPlayerBase.Get(_audioBot);
         if (audioPlayer.CurrentPlay != null)
         {
@@ -68,7 +66,7 @@ public static class AudioPlayer
     public static void RemoveDummy()
     {
         if (_audioBot == null) return;
-        
+
         var audioPlayer = AudioPlayerBase.Get(_audioBot);
         if (audioPlayer.CurrentPlay != null)
         {

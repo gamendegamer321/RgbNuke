@@ -8,7 +8,6 @@ Laboratory/PluginAPI/Plugins/Global/Rainbow Nuke/Audio</code> directory, the Aud
 ## Requirements
 
 This plugin requires the following plugins to be installed on the server:
- - [Cedmod](https://cedmod.nl/)
  - [SCPSLAudioApi](https://github.com/CedModV2/SCPSLAudioApi)
 
 ## Config
