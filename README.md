@@ -8,7 +8,8 @@ Laboratory/PluginAPI/Plugins/Global/Rainbow Nuke/Audio</code> directory, the Aud
 ## Requirements
 
 This plugin requires the following plugins to be installed on the server:
- - [SCPSLAudioApi](https://github.com/CedModV2/SCPSLAudioApi)
+
+- [SCPSLAudioApi](https://github.com/CedModV2/SCPSLAudioApi)
 
 ## Config
 
@@ -21,6 +22,8 @@ You can change the directory to look for the "warhead.ogg" file in the config. H
 round. 0 means never and 100 means always.
 
 <code>Volume</code> - The volume at which the music will be played (as an integer).
+
+<code>Display name</code> - The name that is being displayed by the fake player. The default is "Alpha warhead".
 
 ## Example video
 

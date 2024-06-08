@@ -56,7 +56,7 @@ public static class AudioPlayer
 
         try
         {
-            _audioBot.nicknameSync.SetNick("Alpha warhead");
+            _audioBot.nicknameSync.SetNick(MainClass.Singleton.PluginConfig.DisplayName);
         }
         catch (Exception)
         {
