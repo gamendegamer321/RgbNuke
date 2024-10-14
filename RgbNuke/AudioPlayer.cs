@@ -12,10 +12,6 @@ public static class AudioPlayer
 {
     private static ReferenceHub _audioBot;
 
-    private static string AudioPath => MainClass.Singleton.PluginConfig.MusicDirectory
-        .Replace("{global}", Paths.GlobalPlugins.Plugins)
-        .Replace("{local}", Paths.LocalPlugins.Plugins);
-
     private static int Volume => MainClass.Singleton.PluginConfig.Volume;
 
     public static void PlayAudio()
@@ -24,7 +20,7 @@ public static class AudioPlayer
 
         StopAudio();
 
-        var path = Path.Combine(AudioPath, "warhead.ogg");
+        var path = GetFullPath();
         var audioPlayer = AudioPlayerBase.Get(_audioBot);
         audioPlayer.Enqueue(path, -1);
         audioPlayer.LogDebug = false;
@@ -78,5 +74,31 @@ public static class AudioPlayer
         _audioBot.OnDestroy();
         CustomNetworkManager.TypedSingleton.OnServerDisconnect(_audioBot.connectionToClient);
         Object.Destroy(_audioBot.gameObject);
+    }
+
+    private static string GetFullPath()
+    {
+        var filename = MainClass.Singleton.PluginConfig.FileName;
+        
+        var path = Path.Combine(Paths.LocalPlugins.Plugins, MainClass.PluginName, filename);
+        if (File.Exists(path))
+        {
+            return path;
+        }
+
+        path = Path.Combine(Paths.LocalPlugins.Plugins, MainClass.PluginName, "Audio", filename);
+        if (File.Exists(path))
+        {
+            return path;
+        }
+
+        path = Path.Combine(Paths.GlobalPlugins.Plugins, MainClass.PluginName, filename);
+        if (File.Exists(path))
+        {
+            return path;
+        }
+
+        path = Path.Combine(Paths.GlobalPlugins.Plugins, MainClass.PluginName, "Audio", filename);
+        return File.Exists(path) ? path : null;
     }
 }

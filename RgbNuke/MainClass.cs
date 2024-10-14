@@ -13,8 +13,8 @@ public class MainClass
 
     // ReSharper disable MemberCanBePrivate.Global
     public const string PluginName = "Rainbow Nuke";
-    public const string PluginVersion = "1.1.1";
-    public const string PluginDescription = "Random chance the nuke turns gay for a round.";
+    public const string PluginVersion = "1.2.0";
+    public const string PluginDescription = "Random chance the nuke turns disco for a round.";
     public const string PluginAuthor = "gamendegamer";
     // ReSharper restore MemberCanBePrivate.Global
 

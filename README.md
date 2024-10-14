@@ -14,11 +14,6 @@ This plugin requires the following plugins to be installed on the server:
 
 ## Config
 
-You can change the directory to look for the "warhead.ogg" file in the config. Here <code>{global}</code> points to the
-<code>SCP Secret Laboratory/PluginAPI/Plugins/Global</code> directory and you can navigate from there if desired. It is
-also possible to use <code>{local}</code>, which points to the <code>SCP Secret
-Laboratory/PluginAPI/Plugins/{portNr}</code> folder for the port the server is using.
-
 <code>ColorChangeTime</code> - this will change the time between color changes of the lights.
 
 <code>NukeChance</code> - This is an integer from 0 to 100 that indicates the chance the warhead will be RGB during a
@@ -26,7 +21,20 @@ round. 0 means never and 100 means always.
 
 <code>Volume</code> - The volume at which the music will be played (as an integer).
 
+<code>File name</code> - The name of the audio file to use. The default is "warhead.ogg".
+
 <code>Display name</code> - The name that is being displayed by the fake player. The default is "Alpha warhead".
+
+## Audio file
+
+For the SCP:SL Audio API to work the audio file needs to be a <code>.ogg</code> file with <code>mono</code> audio and a
+refresh rate of <code>48000hz</code>.
+
+The plugin will search for the audio file in the same folder as the config is located (<code>SCP Secret
+Laboratory/PluginAPI/Plugins/Global</code> or <code>SCP Secret Laboratory/PluginAPI/Plugins/{port}</code>), as well as
+an <code>Audio</code> subfolder (<code>SCP Secret Laboratory/PluginAPI/Plugins/Global/Audio</code>  or <code>SCP Secret
+Laboratory/PluginAPI/Plugins/{port}/Audio</code>). In both cases <code>{port}</code> will be replaced with the port of
+the server running the plugin.
 
 ## Command
 
