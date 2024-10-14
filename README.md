@@ -15,7 +15,9 @@ This plugin requires the following plugins to be installed on the server:
 ## Config
 
 You can change the directory to look for the "warhead.ogg" file in the config. Here <code>{global}</code> points to the
-<code>SCP Secret Laboratory/PluginAPI/Plugins/Global</code> directory and you can navigate from there if desired.
+<code>SCP Secret Laboratory/PluginAPI/Plugins/Global</code> directory and you can navigate from there if desired. It is
+also possible to use <code>{local}</code>, which points to the <code>SCP Secret
+Laboratory/PluginAPI/Plugins/{portNr}</code> folder for the port the server is using.
 
 <code>ColorChangeTime</code> - this will change the time between color changes of the lights.
 

@@ -13,7 +13,8 @@ public static class AudioPlayer
     private static ReferenceHub _audioBot;
 
     private static string AudioPath => MainClass.Singleton.PluginConfig.MusicDirectory
-        .Replace("{global}", Paths.GlobalPlugins.Plugins);
+        .Replace("{global}", Paths.GlobalPlugins.Plugins)
+        .Replace("{local}", Paths.LocalPlugins.Plugins);
 
     private static int Volume => MainClass.Singleton.PluginConfig.Volume;
 
