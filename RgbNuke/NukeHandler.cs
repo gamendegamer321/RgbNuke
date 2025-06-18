@@ -17,7 +17,7 @@ public static class NukeHandler
         Color.magenta
     ];
 
-    private static float WaitTime => MainClass.Singleton.PluginConfig.ColorChangeTime;
+    private static float WaitTime => MainClass.Singleton.Config.ColorChangeTime;
     private static CoroutineHandle _handle;
 
     public static void Start()

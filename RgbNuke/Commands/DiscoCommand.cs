@@ -1,6 +1,6 @@
 ﻿using System;
 using CommandSystem;
-using NWAPIPermissionSystem;
+using LabApi.Features.Permissions;
 
 namespace RgbNuke.Commands;
 
@@ -21,7 +21,7 @@ public class DiscoCommand
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
-            if (!sender.CheckPermission("rgbnuke.commands"))
+            if (!sender.HasPermissions("rgbnuke.commands"))
             {
                 response = "no permission";
                 return false;

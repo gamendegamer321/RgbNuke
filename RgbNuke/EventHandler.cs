@@ -1,19 +1,36 @@
-﻿using PluginAPI.Core;
-using PluginAPI.Core.Attributes;
-using PluginAPI.Enums;
-using PluginAPI.Events;
+﻿using LabApi.Events.Arguments.ServerEvents;
+using LabApi.Events.Arguments.WarheadEvents;
+using LabApi.Events.Handlers;
+using LabApi.Features.Console;
+using LabApi.Features.Wrappers;
 using Random = System.Random;
 
 namespace RgbNuke;
 
-public class EventHandler
+public static class EventHandler
 {
-    private static int Chance => MainClass.Singleton.PluginConfig.NukeChance;
+    private static int Chance => MainClass.Singleton.Config.NukeChance;
+    private static bool _isEnabled;
 
-    private bool _isEnabled;
+    public static void RegisterEvents()
+    {
+        ServerEvents.RoundStarted += OnRoundStart;
+        ServerEvents.RoundEnded += OnRoundEnd;
+        WarheadEvents.Started += OnWarheadStart;
+        WarheadEvents.Detonated += OnWarheadDetonation;
+        WarheadEvents.Stopped += OnWarheadStop;
+    }
 
-    [PluginEvent(ServerEventType.RoundStart)]
-    public void OnRoundStart()
+    public static void UnregisterEvents()
+    {
+        ServerEvents.RoundStarted -= OnRoundStart;
+        ServerEvents.RoundEnded -= OnRoundEnd;
+        WarheadEvents.Started -= OnWarheadStart;
+        WarheadEvents.Detonated -= OnWarheadDetonation;
+        WarheadEvents.Stopped -= OnWarheadStop;
+    }
+
+    private static void OnRoundStart()
     {
         var random = new Random(Map.Seed);
         _isEnabled = random.Next(0, 100) < Chance;
@@ -24,19 +41,17 @@ public class EventHandler
 
         if (_isEnabled)
         {
-            Log.Info("Rgb nuke is active this round!");
+            Logger.Info("Rgb nuke is active this round!");
         }
     }
 
-    [PluginEvent(ServerEventType.RoundEnd)]
-    public void OnRoundEnd(RoundEndEvent _)
+    private static void OnRoundEnd(RoundEndedEventArgs _)
     {
         NukeHandler.Stop();
         AudioPlayer.RemoveDummy();
     }
 
-    [PluginEvent(ServerEventType.WarheadStart)]
-    public void OnWarheadStart(WarheadStartEvent _)
+    private static void OnWarheadStart(WarheadStartedEventArgs _)
     {
         if (!_isEnabled) return;
 
@@ -44,15 +59,13 @@ public class EventHandler
         AudioPlayer.PlayAudio();
     }
 
-    [PluginEvent(ServerEventType.WarheadDetonation)]
-    public void OnWarheadDetonation()
+    private static void OnWarheadDetonation(WarheadDetonatedEventArgs _)
     {
         NukeHandler.Stop();
         AudioPlayer.StopAudio();
     }
 
-    [PluginEvent(ServerEventType.WarheadStop)]
-    public void OnWarheadStop(WarheadStopEvent _)
+    private static void OnWarheadStop(WarheadStoppedEventArgs _)
     {
         NukeHandler.Stop();
         AudioPlayer.StopAudio();

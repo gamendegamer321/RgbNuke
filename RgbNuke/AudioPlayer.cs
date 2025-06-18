@@ -1,7 +1,8 @@
 ﻿using System;
 using System.IO;
+using LabApi.Features.Wrappers;
+using LabApi.Loader.Features.Paths;
 using Mirror;
-using PluginAPI.Helpers;
 using SCPSLAudioApi.AudioCore;
 using VoiceChat;
 using Object = UnityEngine.Object;
@@ -12,7 +13,7 @@ public static class AudioPlayer
 {
     private static ReferenceHub _audioBot;
 
-    private static int Volume => MainClass.Singleton.PluginConfig.Volume;
+    private static int Volume => MainClass.Singleton.Config.Volume;
 
     public static void PlayAudio()
     {
@@ -53,7 +54,7 @@ public static class AudioPlayer
 
         try
         {
-            _audioBot.nicknameSync.SetNick(MainClass.Singleton.PluginConfig.DisplayName);
+            _audioBot.nicknameSync.SetNick(MainClass.Singleton.Config.DisplayName);
         }
         catch (Exception)
         {
@@ -78,27 +79,29 @@ public static class AudioPlayer
 
     private static string GetFullPath()
     {
-        var filename = MainClass.Singleton.PluginConfig.FileName;
-        
-        var path = Path.Combine(Paths.LocalPlugins.Plugins, MainClass.PluginName, filename);
+        var filename = MainClass.Singleton.Config.FileName;
+
+        var path = Path.Combine(PathManager.Plugins.FullName, Server.Port.ToString(), MainClass.Singleton.Name,
+            filename);
         if (File.Exists(path))
         {
             return path;
         }
 
-        path = Path.Combine(Paths.LocalPlugins.Plugins, MainClass.PluginName, "Audio", filename);
+        path = Path.Combine(PathManager.Plugins.FullName, Server.Port.ToString(), MainClass.Singleton.Name, "Audio",
+            filename);
         if (File.Exists(path))
         {
             return path;
         }
 
-        path = Path.Combine(Paths.GlobalPlugins.Plugins, MainClass.PluginName, filename);
+        path = Path.Combine(PathManager.Plugins.FullName, "global", MainClass.Singleton.Name, filename);
         if (File.Exists(path))
         {
             return path;
         }
 
-        path = Path.Combine(Paths.GlobalPlugins.Plugins, MainClass.PluginName, "Audio", filename);
+        path = Path.Combine(PathManager.Plugins.FullName, "global", MainClass.Singleton.Name, "Audio", filename);
         return File.Exists(path) ? path : null;
     }
 }

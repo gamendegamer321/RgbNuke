@@ -2,7 +2,7 @@
 
 namespace RgbNuke.Configs;
 
-public class RgbNukeConfig
+public class Config
 {
     [Description("The amount of time between the color changes of the facility")]
     public float ColorChangeTime { get; set; } = 1f;

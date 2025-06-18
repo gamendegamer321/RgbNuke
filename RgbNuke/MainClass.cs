@@ -1,40 +1,32 @@
-using PluginAPI.Core;
-using PluginAPI.Core.Attributes;
-using PluginAPI.Events;
+using System;
+using LabApi.Features;
+using LabApi.Features.Console;
+using LabApi.Loader.Features.Plugins;
 using RgbNuke.Configs;
 using SCPSLAudioApi;
 
 namespace RgbNuke;
 
-public class MainClass
+public class MainClass : Plugin<Config>
 {
     public static MainClass Singleton { get; private set; }
 
+    public override string Name => "Rainbow Nuke";
+    public override string Description => "Random chance the nuke turns disco for a round.";
+    public override string Author => "gamendegamer";
+    public override Version Version => new(1, 3, 0);
+    public override Version RequiredApiVersion => new(LabApiProperties.CompiledVersion);
 
-    // ReSharper disable MemberCanBePrivate.Global
-    public const string PluginName = "Rainbow Nuke";
-    public const string PluginVersion = "1.2.0";
-    public const string PluginDescription = "Random chance the nuke turns disco for a round.";
-    public const string PluginAuthor = "gamendegamer";
-    // ReSharper restore MemberCanBePrivate.Global
-
-    [PluginConfig] public RgbNukeConfig PluginConfig;
-
-    private EventHandler _handler = new();
-
-    [PluginEntryPoint(PluginName, PluginVersion, PluginDescription, PluginAuthor)]
-    private void LoadPlugin()
+    public override void Enable()
     {
         Singleton = this;
-        Log.Info("Loading RGB Nuke");
-        EventManager.RegisterEvents(_handler);
-        
+        Logger.Info("Loading RGB Nuke");
+        EventHandler.RegisterEvents();
         Startup.SetupDependencies();
     }
 
-    [PluginUnload]
-    private void UnloadPlugin()
+    public override void Disable()
     {
-        EventManager.UnregisterEvents(_handler);
+        EventHandler.RegisterEvents();
     }
 }
