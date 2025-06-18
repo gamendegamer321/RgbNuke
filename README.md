@@ -3,14 +3,13 @@
 Will turn all facility lights into a rainbow when the alpha warhead is activated and play a song.
 
 By default, we expect the song to be a file named "warhead.ogg" located in the <code>SCP Secret
-Laboratory/PluginAPI/Plugins/Global/Rainbow Nuke/Audio</code> directory, the Audio directory is next to the config file.
+Laboratory/LabAPI/configs/global/Rainbow Nuke/Audio</code> directory, the Audio directory is next to the config file.
 
 ## Requirements
 
 This plugin requires the following plugins to be installed on the server:
 
 - [SCPSLAudioApi](https://github.com/CedModV2/SCPSLAudioApi)
-- (optional) [NWAPIPermissionSystem](https://github.com/CedModV2/NWAPIPermissionSystem) for commands
 
 ## Config
 
@@ -31,9 +30,9 @@ For the SCP:SL Audio API to work the audio file needs to be a <code>.ogg</code> 
 refresh rate of <code>48000hz</code>.
 
 The plugin will search for the audio file in the same folder as the config is located (<code>SCP Secret
-Laboratory/PluginAPI/Plugins/Global</code> or <code>SCP Secret Laboratory/PluginAPI/Plugins/{port}</code>), as well as
-an <code>Audio</code> subfolder (<code>SCP Secret Laboratory/PluginAPI/Plugins/Global/Audio</code>  or <code>SCP Secret
-Laboratory/PluginAPI/Plugins/{port}/Audio</code>). In both cases <code>{port}</code> will be replaced with the port of
+Laboratory/LabAPI/configs/global</code> or <code>SCP Secret Laboratory/LabAPI/configs/{port}</code>), as well as
+an <code>Audio</code> subfolder (<code>SCP Secret Laboratory/LabAPI/configs/global/Audio</code>  or <code>SCP Secret
+Laboratory/LabAPI/configs/{port}/Audio</code>). In both cases <code>{port}</code> will be replaced with the port of
 the server running the plugin.
 
 ## Command
@@ -43,8 +42,7 @@ You can start or stop the effect by using the commands:
 - <code>disco start</code>
 - <code>disco stop</code>
 
-For these commands to work [NWAPIPermissionSystem](https://github.com/CedModV2/NWAPIPermissionSystem) needs to be
-installed and you need the <code>rgbnuke.commands</code> permission to use the commands.
+For these commands you need the <code>rgbnuke.commands</code> permission.
 
 ## Example video
 
