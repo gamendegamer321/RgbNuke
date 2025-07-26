@@ -30,7 +30,7 @@ For the SCP:SL Audio API to work the audio file needs to be a <code>.ogg</code> 
 refresh rate of <code>48000hz</code>.
 
 The plugin will search for the audio file in the same folder as the config is located (<code>SCP Secret
-Laboratory/LabAPI/configs/global</code> or <code>SCP Secret Laboratory/LabAPI/configs/{port}</code>), as well as
+Laboratory/LabAPI/configs/global/Rainbow Nuke</code> or <code>SCP Secret Laboratory/LabAPI/configs/{port}/Rainbow Nuke</code>), as well as
 an <code>Audio</code> subfolder (<code>SCP Secret Laboratory/LabAPI/configs/global/Audio</code>  or <code>SCP Secret
 Laboratory/LabAPI/configs/{port}/Audio</code>). In both cases <code>{port}</code> will be replaced with the port of
 the server running the plugin.
