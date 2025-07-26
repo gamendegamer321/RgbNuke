@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using LabApi.Features.Console;
 using LabApi.Features.Wrappers;
 using LabApi.Loader.Features.Paths;
 using Mirror;
@@ -22,6 +23,13 @@ public static class AudioPlayer
         StopAudio();
 
         var path = GetFullPath();
+
+        if (path == null)
+        {
+            Logger.Error($"Was unable to find an audio file named: {MainClass.Singleton.Config.FileName}. Make sure it exists!");
+            return;
+        }
+        
         var audioPlayer = AudioPlayerBase.Get(_audioBot);
         audioPlayer.Enqueue(path, -1);
         audioPlayer.LogDebug = false;
@@ -81,27 +89,27 @@ public static class AudioPlayer
     {
         var filename = MainClass.Singleton.Config.FileName;
 
-        var path = Path.Combine(PathManager.Plugins.FullName, Server.Port.ToString(), MainClass.Singleton.Name,
+        var path = Path.Combine(PathManager.Configs.FullName, Server.Port.ToString(), MainClass.Singleton.Name,
             filename);
         if (File.Exists(path))
         {
             return path;
         }
 
-        path = Path.Combine(PathManager.Plugins.FullName, Server.Port.ToString(), MainClass.Singleton.Name, "Audio",
+        path = Path.Combine(PathManager.Configs.FullName, Server.Port.ToString(), MainClass.Singleton.Name, "Audio",
             filename);
         if (File.Exists(path))
         {
             return path;
         }
 
-        path = Path.Combine(PathManager.Plugins.FullName, "global", MainClass.Singleton.Name, filename);
+        path = Path.Combine(PathManager.Configs.FullName, "global", MainClass.Singleton.Name, filename);
         if (File.Exists(path))
         {
             return path;
         }
 
-        path = Path.Combine(PathManager.Plugins.FullName, "global", MainClass.Singleton.Name, "Audio", filename);
+        path = Path.Combine(PathManager.Configs.FullName, "global", MainClass.Singleton.Name, "Audio", filename);
         return File.Exists(path) ? path : null;
     }
 }
