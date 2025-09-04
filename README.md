@@ -4,7 +4,7 @@
 
 # About RGB Nuke
 
-![Video](https://github.com/gamendegamer321/RgbNuke/assets/74590966/1549019a-c9cd-477e-b428-c1ec82acff96)
+https://github.com/gamendegamer321/RgbNuke/assets/74590966/1549019a-c9cd-477e-b428-c1ec82acff96
 
 Will turn all facility lights into a rainbow when the alpha warhead is activated and play a song.
 
