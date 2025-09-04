@@ -1,5 +1,5 @@
 [![GitHub release](https://flat.badgen.net/github/release/gamendegamer321/RgbNuke/)](https://github.com/gamendegamer321/RgbNuke/releases/latest)
-![LabAPI Version](https://flat.badgen.net/static/LabAPI%20Version/v1.1.1)
+[![LabAPI Version](https://flat.badgen.net/static/LabAPI%20Version/v1.1.1)](https://github.com/northwood-studios/LabAPI)
 [![License](https://flat.badgen.net/github/license/gamendegamer321/RgbNuke/)](https://github.com/gamendegamer321/RgbNuke/blob/master/LICENSE)
 
 # About RGB Nuke
