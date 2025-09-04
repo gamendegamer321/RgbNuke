@@ -14,7 +14,7 @@ public class MainClass : Plugin<Config>
     public override string Name => "Rainbow Nuke";
     public override string Description => "Random chance the nuke turns disco for a round.";
     public override string Author => "gamendegamer";
-    public override Version Version => new(1, 3, 0);
+    public override Version Version => new(1, 3, 2);
     public override Version RequiredApiVersion => new(LabApiProperties.CompiledVersion);
 
     public override void Enable()
